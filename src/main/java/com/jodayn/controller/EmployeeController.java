@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jodayn.entity.Employee;
+import com.jodayn.exception.IdNotFoundException;
 import com.jodayn.service.EmployeeService;
 
 @RestController // 
@@ -31,7 +32,7 @@ public class EmployeeController {
 	}
 	
 	@GetMapping("/employee/{id}")
-	public Employee getEmployeeById(@PathVariable int id)
+	public Employee getEmployeeById(@PathVariable int id) throws IdNotFoundException
 	{
 		return employeeService.getEmployeeById(id);
 	}

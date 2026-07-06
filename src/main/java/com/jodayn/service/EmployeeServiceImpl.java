@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jodayn.entity.Employee;
+import com.jodayn.exception.IdNotFoundException;
 import com.jodayn.repository.EmployeeRepository;
 
 @Service
@@ -25,8 +26,8 @@ public class EmployeeServiceImpl implements EmployeeService{
 	}
 
 	@Override
-	public Employee getEmployeeById(int id) {
-		return employeeRepository.findById(id).orElse(null);
+	public Employee getEmployeeById(int id) throws IdNotFoundException {
+		return employeeRepository.findById(id).orElseThrow(()-> new IdNotFoundException("No id present"));
 	}
 
 }
