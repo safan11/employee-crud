@@ -39,11 +39,7 @@ public class EmployeeController {
 	}
 	
 	
-	@ExceptionHandler(exception = IdNotFoundException.class)
-	public String notFoundMessage(IdNotFoundException exception)
-	{
-		return exception.getMessage();
-	}
+	
 	
 	
 	
